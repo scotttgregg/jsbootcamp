@@ -25,5 +25,41 @@ const deleteTodo = function (todos, todoText) {
     }
 }
 
-deleteTodo(todos, 'buy fmood')
+const getThingsToDo = function (todos) {
+    return todos.filter(function (todo) {
+        return !todo.completed
+    })
+}
+
+const sortTodos = function (todos) {
+    todos.sort(function (a, b) {
+        if (a.completed === false && b.completed === true) {
+            return -1
+        } else if (b.completed === false && a.completed === true) {
+            return 1
+        } else {
+            return 0
+        }
+    })
+}
+
+sortTodos(todos)
 console.log(todos)
+
+
+// const findNotes = function (notes, query) {
+//     return notes.filter(function (note, index) {
+//         const isTitleMatch = note.title.toLowerCase().includes(query.toLowerCase())
+//         const isBodyMatch = note.body.toLowerCase().includes(query.toLowerCase())
+//         return isTitleMatch || isBodyMatch
+//     })
+// }
+
+
+
+// console.log(getThingsToDo(todos))
+
+
+//
+// deleteTodo(todos, 'buy flood')
+// console.log(todos)
